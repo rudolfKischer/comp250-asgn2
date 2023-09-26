@@ -39,9 +39,7 @@ float approach_congergent_value() {
 
     while (true) {
       float sum = sum_square_reciprocals(i);
-      if (i % 100 == 0) {
-          printf("i = %d, sum = %.25e\n", i, sum);
-      }
+      printf("i = %d, sum = %.25e\n", i, sum);
       //difference between convergent value and sum
 
 
@@ -58,9 +56,6 @@ float approach_congergent_value() {
       prev_diff = diff;
       i++;
     }
-
-    printf("Final Result:\n");
-    printf("i = %d, sum = %.25e\n", i, sum_square_reciprocals(i-1));
 
     return sum_square_reciprocals(i-1);
 }
@@ -89,17 +84,16 @@ float approach_congergent_value_alternative() {
       prev_diff = diff;
       i++;
     }
-    
 
     return sum_square_reciprocals_alternative(i-1);
 }
 
 int main() {
     float convergent_value = pow(M_PI,2) / 6.0f;
-    float sum = approach_congergent_value();
-    printf("True convergent_value = %.30f\n", convergent_value);
-
-    // float sum = approach_congergent_value_alternative();
+    // float sum = approach_congergent_value();
     // printf("True convergent_value = %.30f\n", convergent_value);
+
+    float sum = approach_congergent_value_alternative();
+    printf("True convergent_value = %.30f\n", convergent_value);
     return 0;
 }
